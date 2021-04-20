@@ -1,0 +1,17 @@
+spring:
+  application:
+    # model修改
+    name: model-eureka
+server:
+  port: 8009
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 表示是否从Eureka Server中获取注册信息 默认为true,单节点不需要同步其他节点数据，设置为false
+    fetch-registry: false
+    # 是否将自己注册到Eureka Server中,默认为true，单节点的Eureka Server不需要注册
+    register-with-eureka: false
+    service-url:
+      # Eureka Server 地址 注册服务和查询服务
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
